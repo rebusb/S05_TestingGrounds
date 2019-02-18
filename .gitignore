@@ -1,3 +1,4 @@
+# default ignores from Unreal setup
 Binaries
 DerivedDataCache
 Intermediate
@@ -12,3 +13,6 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+
+# content ignores
+Content/StarterContent
