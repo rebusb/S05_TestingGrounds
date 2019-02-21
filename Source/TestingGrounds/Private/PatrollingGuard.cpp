@@ -3,9 +3,3 @@
 #include "PatrollingGuard.h"
 
 
-
-
-int  APatrollingGuard::GetPatrolPointCount()
-{
-	return PatrolPoints.Num();
-}

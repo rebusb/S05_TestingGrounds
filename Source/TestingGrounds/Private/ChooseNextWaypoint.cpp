@@ -3,16 +3,18 @@
 #include "ChooseNextWaypoint.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "AIController.h"
-#include "PatrollingGuard.h"
+#include "PatrolRouteComponent.h"
 
 
 EBTNodeResult::Type UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory)
 {
 	//get PatrolPoint array (reference) via PatrollingGuard Pawn
 	AAIController* AIController = OwnerComp.GetAIOwner();
-	APatrollingGuard* GuardPawn = Cast<APatrollingGuard>(AIController->GetPawn());
+	APawn* GuardPawn =AIController->GetPawn();
 	if (!ensure(GuardPawn)) { return  EBTNodeResult::Aborted; };			//dump out of function on bad pointer...
-	TArray<AActor *>& PatrolPoints = GuardPawn->PatrolPoints;
+	auto RouteComp = GuardPawn->FindComponentByClass<UPatrolRouteComponent>();
+
+	TArray<AActor *>& PatrolPoints = RouteComp->PatrolPoints;
 
 	//get current index
 	UBlackboardComponent* BlackboardComp = OwnerComp.GetBlackboardComponent();
