@@ -14,7 +14,8 @@ EBTNodeResult::Type UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent & Ow
 	if (!ensure(GuardPawn)) { return  EBTNodeResult::Aborted; };			//dump out of function on bad pointer...
 	auto RouteComp = GuardPawn->FindComponentByClass<UPatrolRouteComponent>();
 
-	TArray<AActor *>& PatrolPoints = RouteComp->PatrolPoints;
+	if (!ensure(RouteComp)) { return EBTNodeResult::Failed; }
+	const TArray<AActor *>& PatrolPoints = RouteComp->GetPatrolPoints();
 
 	//get current index
 	UBlackboardComponent* BlackboardComp = OwnerComp.GetBlackboardComponent();

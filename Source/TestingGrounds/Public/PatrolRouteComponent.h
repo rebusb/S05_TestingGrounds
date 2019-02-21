@@ -16,6 +16,8 @@ public:
 	// Sets default values for this component's properties
 	UPatrolRouteComponent();
 
+	UFUNCTION()
+		const TArray<AActor*>& GetPatrolPoints() ;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
