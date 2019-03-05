@@ -22,7 +22,9 @@ EBTNodeResult::Type UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent & Ow
 	int32 IndexValue = BlackboardComp->GetValueAsInt(Index.SelectedKeyName);
 
 	//get waypoint
-	if (!ensure(PatrolPoints.IsValidIndex(IndexValue))) { return EBTNodeResult::Failed; }	// fail out on lack of PatrolPoints, maybe there are no points set.
+	if (!PatrolPoints.IsValidIndex(IndexValue)) {
+		//UE_LOG(LogTemp, Warning, TEXT("PatrolPoint invalid index %i"), IndexValue);
+			return EBTNodeResult::Failed; }	// fail out on lack of PatrolPoints, maybe there are no points set.
 	AActor* NextWaypoint = PatrolPoints[IndexValue];
 
 	//set Waypoint
