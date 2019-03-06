@@ -36,7 +36,7 @@ void ANPC_Character::BeginPlay()
 
 
 	//Attach gun mesh component to Skeleton, doing it here because the skeleton is not yet created in the constructor
-	NPC_Gun->AttachToComponent (GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+	NPC_Gun->AttachToComponent (GetMesh(), FAttachmentTransformRules(EAttachmentRule::KeepRelative, true), TEXT("GripPoint"));
 	NPC_Gun->SetHiddenInGame(false, true);
 
 }

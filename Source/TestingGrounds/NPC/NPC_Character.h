@@ -6,6 +6,11 @@
 #include "GameFramework/Character.h"
 #include "NPC_Character.generated.h"
 
+/*
+* was designed to replace Character class in NPC blueprint and place gun, but was easier to adjust using BP method only, 
+* class currently unused
+*/
+
 UCLASS()
 class TESTINGGROUNDS_API ANPC_Character : public ACharacter
 {
