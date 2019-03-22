@@ -17,13 +17,13 @@ class TESTINGGROUNDS_API ANPC_Character : public ACharacter
 	GENERATED_BODY()
 
 
-	/** Gun mesh: Carried by NPC, visible*/
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-		class USkeletalMeshComponent* NPC_Gun;
+	///** Gun mesh: Carried by NPC, visible*/
+	//UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	//	class USkeletalMeshComponent* NPC_Gun;
 
-	/** Location on gun mesh where projectiles should spawn. */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-		class USceneComponent* NPC_MuzzleLocation;
+	///** Location on gun mesh where projectiles should spawn. */
+	//UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	//	class USceneComponent* NPC_MuzzleLocation;
 
 
 public:
