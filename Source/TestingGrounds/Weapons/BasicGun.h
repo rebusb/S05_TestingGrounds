@@ -54,7 +54,7 @@ protected:
 
 public:	
 	/** Fires a projectile. */
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable, Category="Gameplay")
 	void OnFire();
 	
 	
