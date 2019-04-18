@@ -23,8 +23,7 @@ ABasicGun::ABasicGun()
 	SetRootComponent(GunMesh);
 
 	MuzzleLocation = CreateDefaultSubobject<USceneComponent>(TEXT("MuzzleLocation"));
-	MuzzleLocation->SetupAttachment(GunMesh,FName("MuzzleLocation"));
-	MuzzleLocation->SetRelativeLocation(FVector(0.2f, 48.4f, -10.6f));
+
 
 	// Default offset from the character location for projectiles to spawn
 	GunOffset = FVector(100.0f, 0.0f, 10.0f);
@@ -36,8 +35,13 @@ ABasicGun::ABasicGun()
 void ABasicGun::BeginPlay()
 {
 	Super::BeginPlay();
-	
-}
+	if (ensure(MuzzleLocation))
+	{
+		MuzzleLocation->SetupAttachment(GunMesh, FName("Muzzle"));
+		MuzzleLocation->SetRelativeLocation(FVector(0.2f, 48.4f, -10.6f));
+	}
+
+	}
 
 
 void ABasicGun::OnFire()
